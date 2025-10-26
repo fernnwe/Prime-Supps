@@ -3,76 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PrimeSupps | Suplementos Deportivos</title>
+    <title>PrimeSupps | El Élite de la Suplementación Deportiva</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
-    <div class="logo">
-        <img src="img/logo.png" alt="PrimeSupps Logo" class="logo-img">
-    </div>
-    
-    <div class="menu-toggle" id="menu-toggle">☰</div>
+        <div class="logo">
+            <img src="img/logo.png" alt="PrimeSupps Logo" class="logo-img">
+        </div>
+        
+        <div class="menu-toggle" id="menu-toggle">☰</div>
 
-    <nav class="nav" id="main-nav">
-        <a href="#productos">Productos</a>
-        <a href="#carrito-container">Carrito</a>
-    </nav>
-</header>
+        <nav class="nav" id="main-nav">
+            <a href="#productos">Productos</a>
+            <a href="#beneficios">Ventajas</a> 
+            <a href="#carrito-container">Carrito</a>
+        </nav>
+    </header>
 
     <main class="container">
         <section class="hero-section">
-            <h1>¡Potencia tu Rendimiento!</h1>
-            <p>Los mejores suplementos deportivos al alcance de un clic. Envío a toda Nicaragua.</p>
-            <a href="#productos" class="btn-primary">Ver Productos</a>
+            <h1>DOMINA TU ENTRENAMIENTO Y RINDE AL MAXIMO.</h1>
+            <p>La mejor tienda de suplementos deportivos de Nicaragua. Garantía PrimeSupps.</p>
+            <a href="#productos" class="btn-primary pulse">VER PRODUCTOS</a>
+        </section>
+
+        <section id="beneficios" class="benefits-section">
+            <h2>POR QUÉ ELEGIR PRIMESUPPS</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="icon">🔬</span>
+                    <h3>Fórmulas Puras</h3>
+                    <p>Productos 100% originales y de calidad</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">⚡</span>
+                    <h3>Entrega Rápida</h3>
+                    <p>Lleva tu suplementación a toda Nicaragua en tiempo récord.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">🏆</span>
+                    <h3>Resultados Probados</h3>
+                    <p>Potencia, enfoque y crecimiento muscular garantizados.</p>
+                </div>
+            </div>
         </section>
 
         <section id="productos" class="product-grid">
-            <h2>Nuestros Productos</h2>
+            <h2>NUESTRO CATÁLOGO SUPERIOR</h2>
+            
             <div class="product-card" data-id="1" data-nombre="Proteína Whey" data-precio="55.00">
                 <img src="img/proteina.jpg" alt="Proteína Whey">
-                <h3>Proteína Dragon Pharma</h3>
-                <p>Acelera la recuperación y construcción muscular.</p>
+                <h3>PROTEÍNA WHEY ISOLATE</h3>
+                <p>Acelera la recuperación y construcción muscular con 25g de proteína pura.</p>
                 <span class="price">$55.00</span>
-                <button class="add-to-cart-btn">Agregar al Carrito</button>
+                <div class="quantity-control">
+                    <label for="qty-1">Cantidad:</label> 
+                    <input type="number" id="qty-1" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
             </div>
 
             <div class="product-card" data-id="2" data-nombre="Creatina Monohidrato" data-precio="30.00">
                 <img src="img/cretina.jpg" alt="Creatina Monohidrato">
-                <h3>Creatina Monohidrato</h3>
-                <p>Aumenta la fuerza, potencia y rendimiento.</p>
+                <h3>CREATINA MONOHIDRATO</h3>
+                <p>Micronizada para máxima absorción. Aumenta la fuerza y potencia.</p>
                 <span class="price">$30.00</span>
-                <button class="add-to-cart-btn">Agregar al Carrito</button>
+                <div class="quantity-control">
+                    <label for="qty-2">Cantidad:</label> 
+                    <input type="number" id="qty-2" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
             </div>
 
             <div class="product-card" data-id="3" data-nombre="Pre-Entreno Fórmula X" data-precio="45.00">
                 <img src="img/preentreno.jpg" alt="Pre-Entreno Fórmula X">
-                <h3>Pre-Entreno Fórmula X</h3>
-                <p>Energía y enfoque máximo para tus entrenamientos.</p>
+                <h3>PRE-ENTRENO Venon Dragon Pharma</h3>
+                <p>Energía explosiva, enfoque láser y congestiones épicas.</p>
                 <span class="price">$45.00</span>
-                <button class="add-to-cart-btn">Agregar al Carrito</button>
+                <div class="quantity-control">
+                    <label for="qty-3">Cantidad:</label> 
+                    <input type="number" id="qty-3" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
             </div>
-            </section>
+            
+            <div class="product-card" data-id="4" data-nombre="BCAA + EAA" data-precio="35.00">
+                <img src="img/bcaa.jpg" alt="Aminoácidos BCAA + EAA">
+                <h3>BCAA + EAA RECOVERY</h3>
+                <p>Aminoácidos esenciales para evitar el catabolismo y acelerar la síntesis.</p>
+                <span class="price">$35.00</span>
+                <div class="quantity-control">
+                    <label for="qty-4">Cantidad:</label> 
+                    <input type="number" id="qty-4" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
+            </div>
+        </section>
+        
+        <section class="cta-banner">
+            <h2>¿LISTO PARA EL MÁXIMO RENDIMIENTO?</h2>
+            <p>No pierdas más tiempo con fórmulas débiles. adquiere nuestros productos a los mejores precios.</p>
+            <a href="#productos" class="btn-primary">COMPRAR AHORA</a>
+        </section>
+
 
         <section id="carrito-container" class="cart-section">
-            <h2>🛒 Carrito de Compras</h2>
+            <h2>🛒 RESUMEN DE TU PEDIDO</h2>
             <div id="cart-items" class="cart-list">
-                <p class="empty-cart-msg">Tu carrito está vacío.</p>
+                <p class="empty-cart-msg">Tu carrito está esperando por la grandeza.</p>
             </div>
             <div class="cart-summary">
                 <div class="total-line">
-                    <strong>Total:</strong>
+                    <strong>TOTAL A PAGAR:</strong>
                     <span id="cart-total">$0.00</span>
                 </div>
-                <button id="checkout-btn" class="btn-secondary" disabled>Finalizar Compra por WhatsApp</button>
-                <p class="whatsapp-note">Serás redirigido a WhatsApp con los detalles de tu pedido.</p>
+                <button id="checkout-btn" class="btn-secondary" disabled>FINALIZAR COMPRA 📲 WHATSAPP</button>
+                <p class="whatsapp-note">Haz clic para enviar tu pedido al equipo de ventas.</p>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 PrimeSupps. Todos los derechos reservados.</p>
+        <p>&copy; 2025 PrimeSupps. Todos los derechos reservados. | Tienda Nicaraguense.</p>
     </footer>
 
     <script src="js/script.js"></script>
