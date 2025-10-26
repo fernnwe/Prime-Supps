@@ -28,20 +28,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotalElement = document.getElementById('cart-total');
     const checkoutBtn = document.getElementById('checkout-btn');
-    const emptyCartMsg = document.querySelector('.empty-cart-msg'); // Corregido: asumimos que empty-cart-msg está dentro o fuera de cart-items
+    const emptyCartMsg = document.querySelector('.empty-cart-msg'); 
 
     const WHATSAPP_NUMBER = '+50581088124';
 
     // Estado Global del Carrito
     let cart = [];
 
-    // --- FUNCIÓN DE NOTIFICACIÓN TOAST (NUEVA UX) ---
+    // --- FUNCIÓN DE NOTIFICACIÓN TOAST (UX) ---
     function showToast(message) {
         let toast = document.getElementById('toast-notification');
         if (!toast) {
             toast = document.createElement('div');
             toast.id = 'toast-notification';
-            // Agregar estilos básicos para que se vea bien sin CSS adicional
+            // Agregar estilos básicos
             toast.style.position = 'fixed';
             toast.style.bottom = '20px';
             toast.style.right = '20px';
@@ -110,22 +110,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const existingItemIndex = cart.findIndex(item => item.id === productId);
 
         if (existingItemIndex > -1) {
-            // Si el producto ya existe, incrementa la cantidad
             cart[existingItemIndex].cantidad += quantity;
         } else {
-            // Si es un producto nuevo, añádelo al carrito
             cart.push({
                 id: productId,
                 nombre: productName,
                 precio: parseFloat(productPrice),
-                cantidad: quantity // Usa la cantidad recibida
+                cantidad: quantity 
             });
         }
         
         updateCartUI();
-        showToast(`✅ ${quantity}x ${productName} agregado al carrito.`); // Notificación con la cantidad
+        showToast(`✅ ${quantity}x ${productName} agregado al carrito.`); 
         
-        // Scroll suave al carrito después de agregar el primer artículo
         if (cart.length === 1) { 
             document.getElementById('carrito-container').scrollIntoView({ behavior: 'smooth' });
         }
@@ -136,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const removedItemName = cart[itemIndex].nombre;
         cart.splice(itemIndex, 1);
         updateCartUI();
-        showToast(`🗑️ ${removedItemName} eliminado del carrito.`); // Notificación elegante
+        showToast(`🗑️ ${removedItemName} eliminado del carrito.`); 
     }
 
-    // 4. Generar Enlace de WhatsApp
+    // 4. Generar Enlace de WhatsApp (NUEVO FORMATO DE LA IMAGEN)
     function generateWhatsAppLink() {
         if (cart.length === 0) {
             alert('El carrito está vacío. Agrega productos para comprar.');
@@ -147,20 +144,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // 1. Generar el mensaje del pedido
-        let orderDetails = "🛒 *NUEVO PEDIDO PrimeSupps* 🛒%0A%0A";
+        const SEPARATOR = "----- ----- -----"; // Separador de guiones simple
+
+        let orderDetails = "🛒 *NUEVO PEDIDO PrimeSupps*";
         let total = 0;
 
         cart.forEach(item => {
             const itemSubtotal = item.precio * item.cantidad;
             total += itemSubtotal;
-            // Estructura de mensaje mejorada para WhatsApp
-            orderDetails += `*${item.nombre}* x ${item.cantidad} ($${itemSubtotal.toFixed(2)})%0A`;
+            
+            // ✅ Nombre | Cantidad: X | Precio U.: $X.XX | Subtotal: $X.XX
+            orderDetails += `✅ *${item.nombre}* | Cantidad: ${item.cantidad} | Precio U.: $${item.precio.toFixed(2)} | Subtotal: $${itemSubtotal.toFixed(2)}`;
         });
 
-        orderDetails += `%0A➖➖➖➖➖➖➖➖➖➖%0A`;
-        orderDetails += `💰 *TOTAL FINAL: $${total.toFixed(2)}*%0A`;
-        orderDetails += `➖➖➖➖➖➖➖➖➖➖%0A%0A`;
-        orderDetails += "🚀 Por favor, ingrese su *nombre completo* y *dirección exacta* (incluyendo referencias) para la facturación y envío.";
+        // Línea de separación, Total y línea de separación
+        orderDetails += `${SEPARATOR}`; 
+        orderDetails += `💰 *TOTAL A PAGAR: $${total.toFixed(2)}*`;
+        orderDetails += `${SEPARATOR}`; 
+
+        // Mensaje final
+        orderDetails += "Por favor, proporcione su *nombre completo* y *dirección* para la facturación y envío.";
 
         // 2. Construir la URL de WhatsApp
         const waLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(orderDetails)}`;
@@ -169,30 +172,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Escuchadores de Eventos
 
-    // Evento de click para los botones "Agregar al Carrito" (MODIFICADO)
+    // Evento de click para los botones "Agregar al Carrito"
     productGrid.addEventListener('click', (e) => {
         if (e.target.classList.contains('add-to-cart-btn')) {
             const card = e.target.closest('.product-card');
             
-            // --- NUEVA LÓGICA: LEER CANTIDAD ---
             const qtyInput = card.querySelector('.product-qty');
             const quantity = parseInt(qtyInput.value); 
 
-            // Validar la cantidad
             if (isNaN(quantity) || quantity <= 0) {
                 showToast("⚠️ Debes seleccionar una cantidad válida (mínimo 1).");
                 return;
             }
-            // ------------------------------------
 
             const id = card.dataset.id;
             const nombre = card.dataset.nombre;
             const precio = card.dataset.precio;
 
-            // Llamamos a la función con la cantidad
             addToCart(id, nombre, precio, quantity); 
             
-            // Opcional: Resetear el input a 1 después de agregar
             qtyInput.value = 1;
         }
     });
