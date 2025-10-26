@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeSupps | Suplementos Deportivos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+    <div class="logo">
+        <img src="img/logo.png" alt="PrimeSupps Logo" class="logo-img">
+    </div>
+    
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <nav class="nav" id="main-nav">
+        <a href="#productos">Productos</a>
+        <a href="#carrito-container">Carrito</a>
+    </nav>
+</header>
+
+    <main class="container">
+        <section class="hero-section">
+            <h1>¡Potencia tu Rendimiento!</h1>
+            <p>Los mejores suplementos deportivos al alcance de un clic. Envío a toda Nicaragua.</p>
+            <a href="#productos" class="btn-primary">Ver Productos</a>
+        </section>
+
+        <section id="productos" class="product-grid">
+            <h2>Nuestros Productos</h2>
+            <div class="product-card" data-id="1" data-nombre="Proteína Whey" data-precio="55.00">
+                <img src="img/proteina.jpg" alt="Proteína Whey">
+                <h3>Proteína Dragon Pharma</h3>
+                <p>Acelera la recuperación y construcción muscular.</p>
+                <span class="price">$55.00</span>
+                <button class="add-to-cart-btn">Agregar al Carrito</button>
+            </div>
+
+            <div class="product-card" data-id="2" data-nombre="Creatina Monohidrato" data-precio="30.00">
+                <img src="img/cretina.jpg" alt="Creatina Monohidrato">
+                <h3>Creatina Monohidrato</h3>
+                <p>Aumenta la fuerza, potencia y rendimiento.</p>
+                <span class="price">$30.00</span>
+                <button class="add-to-cart-btn">Agregar al Carrito</button>
+            </div>
+
+            <div class="product-card" data-id="3" data-nombre="Pre-Entreno Fórmula X" data-precio="45.00">
+                <img src="img/preentreno.jpg" alt="Pre-Entreno Fórmula X">
+                <h3>Pre-Entreno Fórmula X</h3>
+                <p>Energía y enfoque máximo para tus entrenamientos.</p>
+                <span class="price">$45.00</span>
+                <button class="add-to-cart-btn">Agregar al Carrito</button>
+            </div>
+            </section>
+
+        <section id="carrito-container" class="cart-section">
+            <h2>🛒 Carrito de Compras</h2>
+            <div id="cart-items" class="cart-list">
+                <p class="empty-cart-msg">Tu carrito está vacío.</p>
+            </div>
+            <div class="cart-summary">
+                <div class="total-line">
+                    <strong>Total:</strong>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="btn-secondary" disabled>Finalizar Compra por WhatsApp</button>
+                <p class="whatsapp-note">Serás redirigido a WhatsApp con los detalles de tu pedido.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 PrimeSupps. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
