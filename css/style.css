@@ -322,7 +322,6 @@ h1, h2, h3 {
     /* Estilo oscuro para integración con la tarjeta */
     background-color: #333; 
     color: var(--text-color);
-    -moz-appearance: textfield; /* Oculta flechas en Firefox */
 }
 
 /* Ocultar flechas en navegadores webkit (Chrome, Safari) */
