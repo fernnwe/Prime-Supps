@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ******************************************************
-    // LÓGICA DEL MENÚ DE HAMBURGUESA
-    // ******************************************************
+    //MENÚ DE HAMBURGUESA
     const menuToggle = document.getElementById('menu-toggle');
     const mainNav = document.getElementById('main-nav');
 
@@ -18,11 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    // ******************************************************
-    // LÓGICA DEL CARRITO DE COMPRAS
-    // ******************************************************
-    
     // Definiciones de la Interfaz
     const productGrid = document.querySelector('.product-grid');
     const cartItemsContainer = document.getElementById('cart-items');
@@ -35,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Estado Global del Carrito
     let cart = [];
 
-    // --- FUNCIÓN DE NOTIFICACIÓN TOAST (UX) ---
+    //FUNCIÓN DE NOTIFICACIÓN TOAST (UX)
     function showToast(message) {
         let toast = document.getElementById('toast-notification');
         if (!toast) {
@@ -66,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
             toast.style.transform = 'translateY(10px)';
         }, 2500);
     }
-    // ----------------------------------------------------
 
     // 1. Función para Actualizar la Interfaz del Carrito
     function updateCartUI() {

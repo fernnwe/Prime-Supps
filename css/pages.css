@@ -1,0 +1,239 @@
+:root {
+    --primary: #ff9900;
+    --primary-dark: #e88900;
+    --dark: #0f1111;
+    --gray-dark: #1a1a1a;
+    --gray: #232f3e;
+    --light: #f5f6f8;
+    --white: #ffffff;
+    --accent: #b12704;
+}
+
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= BASE ================= */
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(180deg, #f8f9fb, #eceef1);
+    color: #111;
+    line-height: 1.7;
+}
+
+/* ================= HEADER ================= */
+.header {
+    background: linear-gradient(90deg, #0f1111, #232f3e);
+    padding: 18px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 12px 35px rgba(0,0,0,.45);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-img {
+    height: 46px;
+}
+
+.btn-back {
+    text-decoration: none;
+    font-weight: 900;
+    color: #fff;
+    padding: 12px 26px;
+    border-radius: 999px;
+    border: 2px solid var(--primary);
+    font-size: 1rem;
+    transition: all .3s ease;
+}
+
+.btn-back:hover {
+    background-color: var(--primary);
+    color: #000;
+    box-shadow: 0 0 18px rgba(255,153,0,.7);
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    max-width: 1150px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.container h1 {
+    font-size: 2.8rem;
+    font-weight: 900;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.container h1::after {
+    content: "";
+    width: 90px;
+    height: 5px;
+    background-color: var(--primary);
+    position: absolute;
+    left: 0;
+    bottom: -14px;
+    border-radius: 4px;
+}
+
+/* ================= SECTION ================= */
+.section {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 45px;
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.18),
+        inset 0 0 0 1px rgba(0,0,0,.05);
+    animation: fadeUp .6s ease both;
+}
+
+.section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+}
+
+.section p {
+    font-size: 1.15rem;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+/* ================= LISTS ================= */
+ul {
+    list-style: none;
+    margin-top: 16px;
+}
+
+ul li {
+    font-size: 1.15rem;
+    padding-left: 36px;
+    margin-bottom: 16px;
+    position: relative;
+    font-weight: 600;
+}
+
+ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--primary);
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+/* ================= BADGES ================= */
+.badge {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #000;
+    font-weight: 900;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-size: .95rem;
+    margin-bottom: 20px;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= NAV INFO ================= */
+.info-nav {
+    background-color: #ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    padding: 22px 20px;
+    box-shadow: 0 6px 25px rgba(0,0,0,.12);
+    border-radius: 12px;
+}
+
+.info-nav a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #111;
+    padding: 14px 24px;
+    border-radius: 12px;
+    background-color: #f5f6f8;
+    transition: all .3s;
+    font-size: 1.15rem;
+    text-align: center;
+}
+
+.info-nav a:hover {
+    background-color: #ff9900;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255,153,0,.4);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* -------- TABLET -------- */
+@media (max-width: 768px) {
+    html { font-size: 17px; }
+
+    .container h1 { font-size: 2.4rem; }
+
+    .section { padding: 36px; }
+
+    .info-nav { gap: 16px; padding: 18px; }
+    .info-nav a { font-size: 1.2rem; padding: 14px 20px; }
+}
+
+/* -------- MOBILE REAL (360px – 480px) -------- */
+@media (max-width: 480px) {
+    html { font-size: 20px; }
+    body { font-size: 1.1rem; line-height: 1.8; }
+
+    .header { padding: 18px; }
+    .logo-img { height: 50px; }
+    .btn-back { font-size: 1rem; padding: 14px 24px; }
+
+    .container { margin: 36px auto; padding: 0 18px; }
+    .container h1 { font-size: 2.6rem; line-height: 1.3; }
+    .container h1::after { width: 85px; height: 6px; }
+
+    .section { padding: 36px; border-radius: 22px; }
+    .section h2 { font-size: 1.8rem; }
+    .section p { font-size: 1.2rem; }
+
+    ul li { font-size: 1.2rem; padding-left: 38px; }
+    ul li::before { font-size: 1.3rem; }
+
+    .info-nav {
+        flex-direction: column;
+        gap: 14px;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .info-nav a {
+        font-size: 1.3rem;
+        padding: 16px 24px;
+        border-radius: 16px;
+    }
+}
