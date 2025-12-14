@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información de Productos</title>
     <link rel="stylesheet" href="css/info.css">
+
 </head>
 <body>
     
@@ -125,7 +126,22 @@
 
     </section>
 
+    <section class="comentarios">
+      <h2>¿Tienes alguna duda?</h2>
+
+      <form id="comentario-form">
+        <input type="text" id="nombre" placeholder="Tu nombre" required>
+        <textarea id="mensaje" placeholder="Escribe tu duda..." required></textarea>
+        <button type="submit">Enviar duda</button>
+      </form>
+
+      <div id="lista-comentarios"></div>
+    </section>
+
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/superbase.js"></script>
+
 
 </body>
 </html>
