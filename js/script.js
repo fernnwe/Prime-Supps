@@ -1,5 +1,3 @@
-alert("Hackear está mal JAJAJAJJA");
-
 document.addEventListener('DOMContentLoaded', () => {
     //MENÚ DE HAMBURGUESA
     const menuToggle = document.getElementById('menu-toggle');
