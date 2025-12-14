@@ -187,17 +187,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Evento de click para los botones "Eliminar" del carrito
+    // Eliminar del carrito
     cartItemsContainer.addEventListener('click', (e) => {
         if (e.target.classList.contains('remove-btn')) {
             const indexToRemove = e.target.dataset.index;
             removeFromCart(indexToRemove);
         }
     });
-
-    // Evento de click para el botón "Finalizar Compra"
     checkoutBtn.addEventListener('click', generateWhatsAppLink);
 
-    // Inicializar la interfaz al cargar
     updateCartUI();
 });
