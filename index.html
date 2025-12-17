@@ -1,197 +1,178 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PrimeSupps — Mantenimiento</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&display=swap" rel="stylesheet">
-
-<style>
-:root {
-    --primary: #ff9900;
-    --primary-dark: #e88900;
-    --bg-dark: #0b0b0b;
-    --bg-mid: #121212;
-    --white: #ffffff;
-    --muted: #bdbdbd;
-}
-
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* BODY */
-body {
-    font-family: 'Montserrat', sans-serif;
-    background: radial-gradient(circle at top, #1b1b1b 0%, #0b0b0b 70%);
-    color: var(--white);
-    min-height: 100vh;
-    overflow: hidden;
-}
-
-/* FONDO DINÁMICO */
-.background-glow {
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(circle at 20% 20%, rgba(255,153,0,0.15), transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(255,153,0,0.08), transparent 45%);
-    animation: slowMove 20s infinite alternate;
-}
-
-@keyframes slowMove {
-    from { transform: scale(1); }
-    to { transform: scale(1.15); }
-}
-
-/* PARTICULAS ENERGÍA */
-.particle {
-    position: absolute;
-    bottom: -50px;
-    width: 10px;
-    height: 10px;
-    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-    border-radius: 50%;
-    animation: rise linear infinite;
-    opacity: 0.6;
-}
-
-@keyframes rise {
-    from { transform: translateY(0) scale(1); opacity: .6; }
-    to { transform: translateY(-120vh) scale(.4); opacity: 0; }
-}
-
-/* CONTENEDOR */
-.wrapper {
-    position: relative;
-    z-index: 5;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-}
-
-.maintenance {
-    max-width: 780px;
-    width: 100%;
-    text-align: center;
-}
-
-/* ICONO */
-.icon {
-    font-size: 88px;
-    color: var(--primary);
-    margin-bottom: 25px;
-    text-shadow:
-        0 0 25px rgba(255,153,0,.6),
-        0 0 60px rgba(255,153,0,.4);
-    animation: powerPulse 2.2s infinite ease-in-out;
-}
-
-@keyframes powerPulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.18); }
-}
-
-/* TITULO */
-h1 {
-    font-size: clamp(2.2rem, 5vw, 3.2rem);
-    font-weight: 900;
-    letter-spacing: -1px;
-    margin-bottom: 22px;
-    animation: slideUp .9s ease forwards;
-}
-
-/* TEXTO */
-p {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: var(--muted);
-    line-height: 1.75;
-    margin-bottom: 45px;
-    animation: slideUp 1.3s ease forwards;
-}
-
-/* BARRA DE PROGRESO */
-.progress {
-    height: 6px;
-    width: 100%;
-    background: #1f1f1f;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-bottom: 35px;
-}
-
-.progress span {
-    display: block;
-    height: 100%;
-    width: 0%;
-    background: linear-gradient(90deg, var(--primary), var(--primary-dark));
-    animation: loading 3.5s infinite ease-in-out;
-}
-
-@keyframes loading {
-    0% { width: 0%; }
-    50% { width: 75%; }
-    100% { width: 100%; }
-}
-
-/* TEXTO SECUNDARIO */
-.status {
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--primary);
-    opacity: .85;
-}
-
-/* ENTRADA */
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(35px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* RESPONSIVE */
-@media (max-width: 480px) {
-    .icon { font-size: 68px; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeSupps | El Élite de la Suplementación Deportiva</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SAMPLEHASH" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
+    <header class="header">
+        <div class="logo">
+            <img src="img/logo.png" alt="PrimeSupps Logo" class="logo-img">
+        </div>
+        
+        <div class="menu-toggle" id="menu-toggle">☰</div>
 
-<div class="background-glow"></div>
+        <nav class="nav" id="main-nav">
+            <a href="#productos">Productos</a>
+            <a href="#beneficios">Ventajas</a> 
+            <a href="#carrito-container">Carrito</a>
+        </nav>
+    </header>
 
-<!-- PARTICULAS -->
-<script>
-for (let i = 0; i < 18; i++) {
-    const p = document.createElement("div");
-    p.className = "particle";
-    p.style.left = Math.random() * 100 + "%";
-    p.style.animationDuration = 12 + Math.random() * 10 + "s";
-    p.style.width = p.style.height = 6 + Math.random() * 10 + "px";
-    document.body.appendChild(p);
-}
-</script>
+    <main class="container">
+        <section class="hero-section">
+            <h1>DOMINA TU ENTRENAMIENTO Y RINDE AL MAXIMO.</h1>
+            <p>La mejor tienda de suplementos deportivos de Nicaragua.</p>
+            <a href="#productos" class="btn-primary pulse">ENVIOS CON COSTO ADICIONAL</a>
+        </section>
 
-<div class="wrapper">
-    <div class="maintenance">
-        <div class="icon">🏋️‍♂️</div>
-        <h1>Potenciando PrimeSupps</h1>
-        <p>
-            Estamos optimizando nuestra tienda de suplementos deportivos para ofrecerte
-            una experiencia más rápida, más fuerte y más profesional.
-            Esto es solo una pausa técnica… el progreso nunca se detiene.
-        </p>
+        <section id="beneficios" class="benefits-section">
+            <h2>¿POR QUÉ ELEGIR PRIMESUPPS?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="icon">🔬</span>
+                    <h3>Fórmulas Puras</h3>
+                    <p>Productos 100% originales y de calidad</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">⚡</span>
+                    <h3>Entrega Rápida</h3>
+                    <p>Lleva tu suplementación a toda Nicaragua en tiempo récord.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="icon">🏆</span>
+                    <h3>Resultados Probados</h3>
+                    <p>Potencia, enfoque y crecimiento muscular garantizados.</p>
+                </div>
+            </div>
 
-        <div class="progress"><span></span></div>
-        <div class="status">Entrenando el sistema</div>
-    </div>
-</div>
+        </section>
 
+        <div class="center-container">
+           <a href="info.html" class="supp-button">Información</a>
+        </div>
+
+
+
+        <section id="productos" class="product-grid">
+            <h2>NUESTRO CATÁLOGO</h2>
+            
+            <div class="product-card" data-id="1" data-nombre="isophorm – premium whey isolate 2 lb" data-precio="50.00">
+                <img src="https://dragonpharmalabs.com/cdn/shop/files/850077324017_Render_IsoPhorm_2lbs_Hot-Chocolate_V2_1_300x300.png?v=1761321238" alt="Proteína Whey">
+                <h3>isophorm – premium whey isolate 2 lb</h3>
+                <p>Ideal para contruir masa muscular, bajo en calorias</p>
+                <span class="price">$50.00</span>
+                <div class="quantity-control">
+                    <label for="qty-1">Cantidad:</label> 
+                    <input type="number" id="qty-1" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
+            </div>
+
+            <div class="product-card" data-id="2" data-nombre="WHEYPHORM – Whey Protein Matrix 2 lb" data-precio="48.00">
+                <img src="https://dragonpharmalabs.com/cdn/shop/files/850077324246_Render_WheyPhorm_2lbs_Double_Chocolate_Brownie_V2_1_1_8a0fc50c-660c-4839-a967-9699c52c59ff_4000x.png?v=1761266244" alt="Creatina Monohidrato">
+                <h3>WHEYPHORM – Whey Protein Matrix 2 lb</h3>
+                <p>Ideal si estas en etapa de volumen y quieres contruir masa muscular.</p>
+                <span class="price">$48.00</span>
+                <div class="quantity-control">
+                    <label for="qty-2">Cantidad:</label> 
+                    <input type="number" id="qty-2" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
+            </div>
+
+            <div class="product-card" data-id="3" data-nombre="Preentreno Dragon Pharma Venom" data-precio="45.00">
+                <img src="https://dragonpharmalabs.com/cdn/shop/files/600x600-venom-brazo-limon_-_New_900x.png?v=1762251040" alt="Pre-Entreno Fórmula X">
+                <h3>Preentreno Dragon Pharma Venom</h3>
+                <p>Te hará dar tu mejor esfuerzo en los entrenamientos.</p>
+                <span class="price">$45.00</span>
+                <div class="quantity-control">
+                    <label for="qty-3">Cantidad:</label> 
+                    <input type="number" id="qty-3" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
+            </div>
+            
+            <div class="product-card" data-id="4" data-nombre="CREATINA MONOHIDRATO" data-precio="30.00">
+                <img src="https://dragonpharmalabs.com/cdn/shop/files/RENDERS-600X600-2023_0019_Mockup---Creatine-Proof---Dragon-Pharma---Sem-Fundo1_900x.png?v=1691502002" alt="Creatina">
+                <h3>CREATINA MONOHIDRATO ESENCIAL</h3>
+                <p>Potencia tus entrenamientos y llena mas tus musculos</p>
+                <span class="price">$30.00</span>
+                <div class="quantity-control">
+                    <label for="qty-4">Cantidad:</label> 
+                    <input type="number" id="qty-4" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
+            </div>
+
+            <div class="product-card" data-id="5" data-nombre="PREENTRENO Mr. Veinz" data-precio="27.00">
+                <img src="https://dragonpharmalabs.com/cdn/shop/files/Mockup_-_Mr_Veinz_-_Dragon_Pharma_-_OG_Pineapple_-_01_900x.png?v=1754301215" alt="Creatina">
+                <h3>PREENTRENO Mr. Veinz</h3>
+                <p>Puedes tomarlo a cualquier hora del dia, no contiene estimulantes.</p>
+                <span class="price">$27.00</span>
+                <div class="quantity-control">
+                    <label for="qty-5">Cantidad:</label> 
+                    <input type="number" id="qty-5" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
+            </div>
+
+            <div class="product-card" data-id="6" data-nombre="Paquete de pulseras dragon pharma" data-precio="10.00">
+                <img src="https://dragonpharmalabs.com/cdn/shop/files/wristbands-pack_900x.png?v=1747943042" alt="Creatina">
+                <h3>Pulseras de Dragon Pharma (3 unidades)</h3>
+                <p>Brazaletes originales de dragon pharma</p>
+                <span class="price">$10.00</span>
+                <div class="quantity-control">
+                    <label for="qty-6">Cantidad:</label> 
+                    <input type="number" id="qty-6" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
+            </div>
+
+            <div class="product-card" data-id="7" data-nombre="CREATINA MONOHIDRATO" data-precio="35.00">
+                <img src="https://dragonpharmalabs.com/cdn/shop/files/Mockup_-_Creatine_Flavored_-_Pink_Lemonade_-_01_f85d1f64-17a2-4187-8e50-c9b957c9899f_900x.png?v=1757342228" alt="Creatina">
+                <h3>CREATINA MONOHIDRATO DE SABOR</h3>
+                <p>Potencia tus entrenamientos y llena mas tus musculos</p>
+                <span class="price">$35.00</span>
+                <div class="quantity-control">
+                    <label for="qty-7">Cantidad:</label> 
+                    <input type="number" id="qty-7" class="product-qty" value="1" min="1" max="99">
+                </div>
+                <button class="add-to-cart-btn">AÑADIR AL CARRITO</button>
+            </div>
+        </section>
+        
+        <section class="cta-banner">
+            <h2>¿LISTO PARA EL MÁXIMO RENDIMIENTO?</h2>
+            <p>No pierdas más tiempo con fórmulas débiles. adquiere nuestros productos a los mejores precios.</p>
+            <a href="#productos" class="btn-primary">COMPRAR AHORA</a>
+        </section>
+
+
+        <section id="carrito-container" class="cart-section">
+            <h2>🛒 RESUMEN DE TU PEDIDO</h2>
+            <div id="cart-items" class="cart-list">
+                <p class="empty-cart-msg">Tu carrito está esperando por la grandeza.</p>
+            </div>
+            <div class="cart-summary">
+                <div class="total-line">
+                    <strong>TOTAL A PAGAR:</strong>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="btn-secondary" disabled>FINALIZAR COMPRA 📲 WHATSAPP</button>
+                <p class="whatsapp-note">Haz clic para enviar tu pedido al equipo de ventas.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 PrimeSupps. Todos los derechos reservados. | Tienda Online Nicaraguense.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
